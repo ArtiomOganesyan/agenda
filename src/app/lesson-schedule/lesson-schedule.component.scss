@@ -1,0 +1,151 @@
+.container {
+  background: var(--light-color);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.lesson-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn {
+  width: 6rem;
+  height: 2rem;
+  border-radius: 15px;
+  transition: all 0.5s;
+
+  &:hover {
+    box-shadow: 0px 0px 15px 5px rgba(44, 107, 101, 1);
+  }
+}
+
+.lesson-btn {
+  margin-top: 1rem;
+}
+
+ul {
+  max-height: 90%;
+  overflow: auto;
+  padding-right: .5rem;
+}
+
+li {
+  list-style: none;
+}
+
+li>div {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  width: 500px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.lesson {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+
+  .date {
+    flex: 1;
+    font-size: .8rem;
+  }
+
+  .title {
+    flex: 3
+  }
+
+  .info {
+    flex: 1 100%;
+    margin-top: .5rem;
+
+    .inner-info {
+      margin-bottom: .5rem
+    }
+  }
+}
+
+li .icon {
+  margin-bottom: .5rem;
+  transition: all 0.5s;
+
+  &:hover {
+    text-shadow: 0px 0px 5px rgba(44, 107, 101, 1);
+  }
+}
+
+.lesson-form {
+  position: fixed;
+  z-index: 101;
+  width: 35vw;
+  height: 70vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--light-color);
+  padding: 5rem;
+  border-radius: 10px;
+  border: 3px solid var(--dark-color);
+
+  button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+  }
+
+  .icon {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+  }
+
+  .form-item {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    input,
+    textarea {
+      padding: 5px
+    }
+
+    textarea {
+      height: 6rem;
+    }
+
+    input {
+      height: 1.5rem;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline;
+}
+
+.mask {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: var(--dark-color);
+  opacity: 50%;
+}
