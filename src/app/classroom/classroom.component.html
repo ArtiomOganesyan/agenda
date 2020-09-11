@@ -1,1 +1,79 @@
-<p>classroom works!</p>
+<div class="container">
+  <i (click)="pickStudentFormToggle()">...</i>
+
+  <div class="student-info" *ngIf="student; else noStudent">
+    <i class='icon-delete' (click)='deleteStudent()'>X</i>
+    <div class="student">
+      <div>
+        <img src="http://getdrawings.com/vectors/vector-profile-picture-2.png" alt="empty">
+      </div>
+      <div>
+        <div class="name">{{student.name}}</div>
+        <div class="averageGrade">
+          <span>
+            averageGrade:
+          </span>
+          <span>
+            {{student.averageGrade}}
+          </span>
+        </div>
+        <div class="averageGradeSecond">
+          <span>
+            averageGrade second decimal:
+          </span>
+          <span>
+            {{student.averageGradeSecond}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="student-table">
+      <ul>
+        <li *ngFor='let lesson of student.lessons; let i = index'>
+          <span>
+            {{i+1}}/ {{lesson.title}}
+          </span>
+          <span *ngIf='lesson.grade; else noGrade'>
+            {{lesson.grade}}
+          </span>
+          <ng-template #noGrade>
+            <form (ngSubmit)='addGrade(lesson.id)' [formGroup]="formGrade">
+              <input type='number' formControlName='grade' min="1" max="5" />
+              <button type="submit" [disabled]='formGrade.invalid'>add</button>
+            </form>
+          </ng-template>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <ng-template #noStudent>
+    <p class="noStudent-text" (click)="pickStudentFormToggle()">...Выборите учиника</p>
+  </ng-template>
+
+
+  <div *ngIf="studentList">
+    <div class="mask" (click)="pickStudentFormToggle()"></div>
+    <div class="student-list">
+      <ul>
+        <li *ngFor="let student of students; let i = index" (click)='pickStudent(student.id)'>
+          {{ i + 1 }}/ {{ student.name }}
+        </li>
+      </ul>
+      <form class="lesson-form" (ngSubmit)="submit()" [formGroup]="form">
+        <div class="form-item">
+          <input type="text" formControlName="name" placeholder="New Student" />
+        </div>
+        <button class="btn" type="submit" [disabled]="form.invalid">
+          Добавить
+        </button>
+        <div class="icon" (click)="pickStudentFormToggle()">X</div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+</div>

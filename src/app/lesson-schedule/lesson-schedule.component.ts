@@ -54,7 +54,6 @@ export class LessonScheduleComponent implements OnInit {
       visibility: false,
     });
     localStorage.setItem('DB_Lessons', JSON.stringify(this.lessons));
-    console.log(this.lessons);
     this.formToggle();
     this.form.reset();
   }
