@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DBService } from '../services/db.service';
+import { ILesson } from '../services/ILesson.interface';
 
 @Component({
   selector: 'app-lesson-schedule',
@@ -9,18 +11,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LessonScheduleComponent implements OnInit {
   form: FormGroup;
 
-  lessons: Array<any> = [];
+  public get lessons(): Array<ILesson> {
+    return this.DB.lessons;
+  }
 
-  infoVisibility = false;
+  propLesson;
+
   formVisibility = false;
-  constructor() {}
+  constructor(private DB: DBService) {
+    this.getLessons();
+  }
 
   ngOnInit(): void {
-    this.lessons =
-      JSON.parse(localStorage.getItem('DB_Lessons')).map((lesson) => ({
-        ...lesson,
-        visibility: false,
-      })) || [];
     this.form = new FormGroup({
       date: new FormControl('', Validators.required),
       title: new FormControl('', Validators.required),
@@ -34,27 +36,36 @@ export class LessonScheduleComponent implements OnInit {
   }
 
   infoToggle(id: string) {
-    this.lessons.forEach((lesson) => {
+    this.propLesson.forEach((lesson) => {
       if (lesson.id === id) lesson.visibility = !lesson.visibility;
       return lesson;
     });
   }
 
+  getLessons() {
+    this.propLesson = this.lessons.map((lesson) => ({
+      ...lesson,
+      visibility: false,
+    }));
+  }
+
   remove(id: string) {
-    if (confirm('Уверены, что хотите удалить урок?'))
-      this.lessons = this.lessons.filter((lesson) => lesson.id !== id);
-    localStorage.setItem('DB_Lessons', JSON.stringify(this.lessons));
+    this.DB.remove(id);
+    this.getLessons();
   }
 
   submit() {
-    const { date, title, homework, additionalInfo } = this.form.value;
-    this.lessons.push({
-      ...this.form.value,
-      id: Math.random().toString(16).slice(2),
-      visibility: false,
-    });
-    localStorage.setItem('DB_Lessons', JSON.stringify(this.lessons));
+    this.DB.push(this.form.value);
     this.formToggle();
     this.form.reset();
+    this.getLessons();
+  }
+
+  test() {
+    console.log(this);
+  }
+
+  edit(key: string, id: string, index: string | number) {
+    console.log(this.lessons[index]);
   }
 }

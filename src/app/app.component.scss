@@ -6,9 +6,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-div{
-  width: 80%;
-  height: 90%;
+  &>div {
+    width: 80%;
+    height: 90%;
+  }
 }

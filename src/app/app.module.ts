@@ -6,9 +6,17 @@ import { AppComponent } from './app.component';
 import { LessonScheduleComponent } from './lesson-schedule/lesson-schedule.component';
 import { ClassroomComponent } from './classroom/classroom.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TestTestComponent } from './test-test/test-test.component';
+import { SomeDirectiveDirective } from './directive/some-directive.directive';
 
 @NgModule({
-  declarations: [AppComponent, LessonScheduleComponent, ClassroomComponent],
+  declarations: [
+    AppComponent,
+    LessonScheduleComponent,
+    ClassroomComponent,
+    TestTestComponent,
+    SomeDirectiveDirective,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

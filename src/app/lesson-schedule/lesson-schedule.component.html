@@ -1,15 +1,23 @@
 <div class="container lesson-table">
 
-  <ul *ngIf='lessons.length; else noLessons'>
-    <li *ngFor='let lesson of lessons; let i = index'>
+  <ul *ngIf='propLesson.length; else noLessons'>
+    <li *ngFor='let lesson of propLesson; let i = index'>
       <div>
         <strong>{{i + 1 }}/</strong>
         <div class="lesson">
           <div class="title">{{lesson.title}}</div>
           <div class="date">{{lesson.date}}</div>
           <div [className]="lesson.visibility ? 'show info': 'hide info'">
-            <div class="inner-info">Домашнее задание:<br /> {{lesson.homework}}</div>
-            <div class="inner-info">Примечание:<br /> {{lesson.additionalInfo}}</div>
+            <div class="inner-info">Домашнее задание:<br />
+              <span (click)='edit("homework",lesson.id, i)'>
+                {{lesson.homework}}
+              </span>
+            </div>
+            <div class="inner-info">Примечание:<br />
+              <span (click)='edit("additionalInfo",lesson.id, i)'>
+                {{lesson.additionalInfo}}
+              </span>
+            </div>
           </div>
         </div>
         <div>
@@ -52,8 +60,12 @@
         </label>
         <textarea type="text" formControlName="additionalInfo"></textarea>
       </div>
-      <button class="btn" type='submit' [disabled]='form.invalid'>Добавить</button>
+      <button class="btn-form" type='submit' [disabled]='form.invalid'>Добавить</button>
       <div class="icon" (click)='formToggle()'>X</div>
+      <!-- <button (click)='test()'>test</button> -->
+
     </form>
+
+
   </div>
 </div>
