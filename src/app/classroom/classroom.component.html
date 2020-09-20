@@ -57,7 +57,7 @@
     <div class="mask" (click)="pickStudentFormToggle()"></div>
     <div class="student-list">
       <ul>
-        <li *ngFor="let student of students; let i = index" (click)='pickStudent(student.id)'>
+        <li *ngFor="let student of students; let i = index" (click)='toggleStudent(student.id)'>
           {{ i + 1 }}/ {{ student.name }}
         </li>
       </ul>

@@ -1,22 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ILesson } from './ILesson.interface';
+import { ILesson } from './Agenda.interface';
+import { DBClassroomService } from './dbclassroom.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DBService {
-  // lessons: Array<ILesson> = [];
-  constructor() {
-    if (this.lessons.length)
-      this.lessons = this.lessons.map((lesson: any) => ({
-        ...lesson,
-      }));
-
-    console.log(this.lessons);
-  }
+  constructor() {}
 
   public get lessons(): Array<ILesson> {
-    // return <ILesson>JSON.parse(localStorage.getItem('DB_Lessons'));
     try {
       const lessons =
         (JSON.parse(localStorage.getItem('DB_Lessons')) as Array<ILesson>) ||

@@ -8,7 +8,7 @@
   "files": [
     "src/main.ts",
     "src/polyfills.ts",
-    "src/app/services/ILesson.interface.ts"
+    "src/app/services/Agenda.interface.ts"
   ],
   "include": [
     "src/**/*.d.ts"

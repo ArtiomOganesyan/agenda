@@ -30,6 +30,7 @@
   <ng-template #noLessons>
     <p>...Пока нет уроков</p>
   </ng-template>
+  <button (click)='test()'>test</button>
 
   <button class="btn lesson-btn" (click)='formToggle()'>Добавить Урок</button>
 
@@ -62,7 +63,6 @@
       </div>
       <button class="btn-form" type='submit' [disabled]='form.invalid'>Добавить</button>
       <div class="icon" (click)='formToggle()'>X</div>
-      <!-- <button (click)='test()'>test</button> -->
 
     </form>
 

@@ -1,9 +1,9 @@
 <div class="container">
   <div>
-    <app-lesson-schedule></app-lesson-schedule>
+    <app-lesson-schedule (newLessonSubmitted)='test()'></app-lesson-schedule>
     <!-- <app-test-test></app-test-test> -->
   </div>
   <div>
-    <app-classroom></app-classroom>
+    <app-classroom [someEvent]='local' #comp2></app-classroom>
   </div>
 </div>

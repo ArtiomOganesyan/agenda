@@ -1,7 +1,8 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DBService } from '../services/db.service';
-import { ILesson } from '../services/ILesson.interface';
+import { ILesson } from '../services/Agenda.interface';
+import { DBClassroomService } from '../services/dbclassroom.service';
 
 @Component({
   selector: 'app-lesson-schedule',
@@ -10,15 +11,16 @@ import { ILesson } from '../services/ILesson.interface';
 })
 export class LessonScheduleComponent implements OnInit {
   form: FormGroup;
+  propLesson: any[];
+  formVisibility = false;
+
+  @Output() newLessonSubmitted = new EventEmitter();
 
   public get lessons(): Array<ILesson> {
     return this.DB.lessons;
   }
 
-  propLesson;
-
-  formVisibility = false;
-  constructor(private DB: DBService) {
+  constructor(private DB: DBService, private DB_Students: DBClassroomService) {
     this.getLessons();
   }
 
@@ -59,13 +61,16 @@ export class LessonScheduleComponent implements OnInit {
     this.formToggle();
     this.form.reset();
     this.getLessons();
+    this.DB_Students.syncLessonsAndStudents();
+    this.newLessonSubmitted.emit();
   }
 
   test() {
-    console.log(this);
+    // this.DB_Students.syncLessonsAndStudents();
+    this.newLessonSubmitted.emit();
   }
 
   edit(key: string, id: string, index: string | number) {
-    console.log(this.lessons[index]);
+    console.log('edit');
   }
 }
