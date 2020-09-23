@@ -1,0 +1,124 @@
+.table-classroom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    margin: 10px;
+    padding: 5px;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+
+  section {
+    overflow: auto;
+    overflow-y: auto;
+    width: 100vw;
+    height: 80vh;
+    padding: 2rem;
+  }
+
+  .head,
+  .table {
+    display: flex;
+
+    & > div {
+      flex: 1;
+      border: 1px solid;
+      min-width: 150px;
+      min-height: 50px;
+      max-height: 100px;
+      padding: 0.2rem;
+      overflow: auto;
+    }
+
+    .lesson {
+      width: 200px;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      & > :first-child {
+        font-size: 1rem;
+      }
+
+      & > :last-child {
+        font-size: 0.5rem;
+        position: absolute;
+        top: 0;
+        right: 5px;
+      }
+    }
+
+    .corner {
+      position: relative;
+      & > :first-child {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-65%);
+      }
+      & > :last-child {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -65%);
+      }
+    }
+  }
+
+  // .table {
+  //   display: flex;
+  //   flex-direction: column;
+  //   width: 100vw;
+  //   height: 80vh;
+  //   padding: 1rem 2rem;
+  //   overflow: auto;
+  //   overflow-y: auto;
+  //   // flex-wrap: wrap;
+
+  //   * {
+  //     padding: 5px;
+  //     margin: 5px;
+  //     border: 1px solid;
+  //   }
+
+  //   // .lessonTable {
+  //   //   display: flex;
+  //   // }
+
+  //   .head {
+  //     white-space: nowrap;
+  //     display: flex;
+  //   }
+
+  //   .lesson {
+  //     //   width: 200px;
+  //     display: flex;
+  //     align-items: center;
+
+  //     &>:first-child {
+  //       font-size: 1rem;
+  //     }
+
+  //     &>:last-child {
+  //       font-size: 0.5rem;
+  //     }
+  //   }
+
+  //   .student {
+  //     display: flex;
+  //     width: 100%;
+
+  //     &>:first-child {
+  //       width: 10%;
+  //     }
+
+  //     &>* {
+  //       width: 150px;
+  //     }
+  //   }
+
+  // }
+}

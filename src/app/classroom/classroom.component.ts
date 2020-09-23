@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IStudent } from '../services/Agenda.interface';
-import { DBClassroomService } from '../services/dbclassroom.service';
+import { DBClassroomService } from '../services/dbClassroom.service';
 
 @Component({
   selector: 'app-classroom',

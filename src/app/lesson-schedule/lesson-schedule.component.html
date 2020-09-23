@@ -2,41 +2,40 @@
 
   <ul *ngIf='propLesson.length; else noLessons'>
     <li *ngFor='let lesson of propLesson; let i = index'>
-      <div>
-        <strong>{{i + 1 }}/</strong>
-        <div class="lesson">
-          <div class="title">{{lesson.title}}</div>
-          <div class="date">{{lesson.date}}</div>
-          <div [className]="lesson.visibility ? 'show info': 'hide info'">
-            <div class="inner-info">Домашнее задание:<br />
-              <span (click)='edit("homework",lesson.id, i)'>
-                {{lesson.homework}}
-              </span>
-            </div>
-            <div class="inner-info">Примечание:<br />
-              <span (click)='edit("additionalInfo",lesson.id, i)'>
-                {{lesson.additionalInfo}}
-              </span>
-            </div>
+      <strong>{{i + 1 }}/</strong>
+      <div class="lesson">
+        <div class="title">{{lesson.title}}</div>
+        <div class="date">{{lesson.date}}</div>
+        <div [className]="lesson.visibility ? 'show info': 'hide info'">
+          <div class="inner-info">Домашнее задание:<br />
+            <span (click)='edit("homework",lesson.id, i)'>
+              {{lesson.homework}}
+            </span>
+          </div>
+          <div class="inner-info">Примечание:<br />
+            <span (click)='edit("additionalInfo",lesson.id, i)'>
+              {{lesson.additionalInfo}}
+            </span>
           </div>
         </div>
-        <div>
-          <div class="icon" (click)='infoToggle(lesson.id)'>...</div>
-          <div class="icon" (click)='remove(lesson.id)'>X</div>
-        </div>
+      </div>
+      <div>
+        <div class="icon" (click)='infoToggle(lesson.id)'>...</div>
+        <div class="icon" (click)='remove(lesson.id)'>X</div>
       </div>
     </li>
   </ul>
   <ng-template #noLessons>
     <p>...Пока нет уроков</p>
   </ng-template>
-  <button (click)='test()'>test</button>
 
   <button class="btn lesson-btn" (click)='formToggle()'>Добавить Урок</button>
 
   <div [className]="formVisibility ? 'show' : 'hide'">
     <div class="mask" (click)='formToggle()'></div>
     <form class='lesson-form' (ngSubmit)="submit()" [formGroup]='form'>
+      <!-- <button (click)='test()'>tesdddddddddddddddddddddt</button> -->
+
       <div class="form-item">
         <label for="">
           Дата урока
@@ -47,7 +46,8 @@
         <label for="">
           Тема урока
         </label>
-        <input type="text" formControlName="title">
+        <input type="text" #title (keyup)='checkMaxLength(title)' maxLength="25" formControlName="title">
+        <span class="titleLength">{{titleLength}}/25</span>
       </div>
       <div class="form-item">
         <label for="">

@@ -1,0 +1,39 @@
+<div class="table-classroom">
+
+  <div class='title'>Classroom Table</div>
+
+
+  <section>
+
+    <div class="head">
+      <div class="corner">
+        <span>
+          name
+        </span>
+        <span>
+          lesson
+        </span>
+      </div>
+      <div class="lesson" *ngFor='let lesson of lessonList'>
+        <span>
+          {{lesson.title}}
+        </span>
+        <span>
+          / {{lesson.date}}
+        </span>
+      </div>
+      <div>Average</div>
+      <div>Average, Two Decimals</div>
+    </div>
+    <div class="table" *ngFor='let student of studentList'>
+      <div>{{student.name}}</div>
+      <div *ngFor='let studentLesson of student.lessons'>{{studentLesson.grade || ''}}</div>
+      <div>{{student.averageGrade}}</div>
+      <div>{{student.averageGradeSecond}}</div>
+    </div>
+
+  </section>
+
+
+
+</div>

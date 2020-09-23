@@ -20,8 +20,6 @@ export class TestTestComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
       this.toggleClass = !this.toggleClass;
-    }, 2000);
+    }, 20000);
   }
-
-  
 }

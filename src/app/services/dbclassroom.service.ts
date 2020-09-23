@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IStudent } from '../services/Agenda.interface';
+import { IStudent } from './Agenda.interface';
 import { DBService } from './db.service';
 
 @Injectable({

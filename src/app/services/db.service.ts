@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ILesson } from './Agenda.interface';
-import { DBClassroomService } from './dbclassroom.service';
+import { DBClassroomService } from './dbClassroom.service';
 
 @Injectable({
   providedIn: 'root',

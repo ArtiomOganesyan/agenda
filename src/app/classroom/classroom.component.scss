@@ -76,6 +76,12 @@
   }
 
   .student-table {
+
+    ul {
+      max-height: 400px;
+      overflow: auto;
+    }
+
     ul>li {
       width: 100%;
       display: flex;
@@ -115,11 +121,18 @@
     border-radius: 15px;
     border: 2px solid var(--dark-color);
 
+    ul {
+      height: 550px;
+      overflow: auto;
+      width: 30vw;
+    }
+
     form {
       display: flex;
       justify-content: stretch;
       align-items: stretch;
       width: 50%;
+      padding-top: 10px;
 
       * {
         height: 40px;

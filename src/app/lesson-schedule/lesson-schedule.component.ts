@@ -1,8 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DBService } from '../services/db.service';
 import { ILesson } from '../services/Agenda.interface';
-import { DBClassroomService } from '../services/dbclassroom.service';
+import { DBClassroomService } from '../services/dbClassroom.service';
 
 @Component({
   selector: 'app-lesson-schedule',
@@ -13,6 +13,7 @@ export class LessonScheduleComponent implements OnInit {
   form: FormGroup;
   propLesson: any[];
   formVisibility = false;
+  titleLength = 0;
 
   @Output() newLessonSubmitted = new EventEmitter();
 
@@ -25,9 +26,11 @@ export class LessonScheduleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('hit');
+
     this.form = new FormGroup({
       date: new FormControl('', Validators.required),
-      title: new FormControl('', Validators.required),
+      title: new FormControl('', [Validators.required]),
       homework: new FormControl('', Validators.required),
       additionalInfo: new FormControl('', Validators.required),
     });
@@ -66,11 +69,18 @@ export class LessonScheduleComponent implements OnInit {
   }
 
   test() {
+    // console.log(this.form);
+    // console.log(this.titleLength);
     // this.DB_Students.syncLessonsAndStudents();
-    this.newLessonSubmitted.emit();
+    // this.newLessonSubmitted.emit();
   }
 
   edit(key: string, id: string, index: string | number) {
     console.log('edit');
+  }
+
+  checkMaxLength(element) {
+    this.titleLength = 0;
+    if (element.value.length) this.titleLength = element.value.length;
   }
 }

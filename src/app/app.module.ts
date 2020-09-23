@@ -8,6 +8,7 @@ import { ClassroomComponent } from './classroom/classroom.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestTestComponent } from './test-test/test-test.component';
 import { SomeDirectiveDirective } from './directive/some-directive.directive';
+import { TableClassroomComponent } from './table-classroom/table-classroom.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SomeDirectiveDirective } from './directive/some-directive.directive';
     ClassroomComponent,
     TestTestComponent,
     SomeDirectiveDirective,
+    TableClassroomComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

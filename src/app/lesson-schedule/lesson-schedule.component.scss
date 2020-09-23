@@ -10,8 +10,14 @@
 .lesson-table {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-direction: column;
+  padding: 1rem 2rem;
+
+  p {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 }
 
 .btn {
@@ -25,7 +31,7 @@
     height: 2rem;
     border-radius: 15px;
     transition: all 0.5s;
-    font-size: .5rem;
+    font-size: 0.5rem;
   }
 
   &:hover,
@@ -36,25 +42,26 @@
 
 .lesson-btn {
   margin-top: 1rem;
+  // width: 100%;
+  margin: 0 auto;
 }
 
 ul {
   max-height: 90%;
+  width: 100%;
   overflow: auto;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
+  // width: 100%;
+  // margin: 0 50px;
 }
 
 li {
-  list-style: none;
-}
-
-li>div {
   display: flex;
   justify-content: space-between;
   min-width: 300px;
-  width: 400px;
   flex-wrap: wrap;
   list-style: none;
+  width: 100%;
 }
 
 .lesson {
@@ -64,25 +71,25 @@ li>div {
 
   .date {
     flex: 1;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .title {
-    flex: 3
+    flex: 3;
   }
 
   .info {
     flex: 1 100%;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 
     .inner-info {
-      margin-bottom: .5rem
+      margin-bottom: 0.5rem;
     }
   }
 }
 
 li .icon {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   transition: all 0.5s;
 
   &:hover {
@@ -125,10 +132,11 @@ li .icon {
     height: 80%;
     flex-direction: column;
     justify-content: space-evenly;
+    position: relative;
 
     input,
     textarea {
-      padding: 5px
+      padding: 5px;
     }
 
     textarea {
@@ -137,6 +145,13 @@ li .icon {
 
     input {
       height: 1.5rem;
+    }
+
+    .titleLength {
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      font-size: 0.5rem;
     }
   }
 }
