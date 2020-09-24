@@ -27,9 +27,15 @@
     </div>
     <div class="table" *ngFor='let student of studentList'>
       <div>{{student.name}}</div>
-      <div *ngFor='let studentLesson of student.lessons'>{{studentLesson.grade || ''}}</div>
-      <div>{{student.averageGrade}}</div>
-      <div>{{student.averageGradeSecond}}</div>
+      <div *ngFor='let studentLesson of student.lessons' [inner]='studentLesson.grade' GradeHighlight>
+        {{studentLesson.grade || ''}}
+      </div>
+      <div [inner]='student.averageGrade' GradeHighlight>
+        {{student.averageGrade}}
+      </div>
+      <div [inner]='student.averageGradeSecond' GradeHighlight>
+        {{student.averageGradeSecond}}
+      </div>
     </div>
 
   </section>

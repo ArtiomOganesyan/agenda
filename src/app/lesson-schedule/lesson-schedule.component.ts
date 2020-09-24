@@ -26,8 +26,6 @@ export class LessonScheduleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('hit');
-
     this.form = new FormGroup({
       date: new FormControl('', Validators.required),
       title: new FormControl('', [Validators.required]),

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IStudent } from '../services/Agenda.interface';
 import { DBClassroomService } from '../services/dbClassroom.service';
@@ -38,8 +38,11 @@ export class ClassroomComponent implements OnInit, OnChanges {
     this.loadStudents();
   }
 
-  loadStudents(): void {
+  inputFunc() {
+    console.log('check');
+  }
 
+  loadStudents(): void {
     this.students = this.DB.students.map((student) => ({
       ...student,
       picked: false,

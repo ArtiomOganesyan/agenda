@@ -33,12 +33,12 @@
           <span>
             {{i+1}}/ {{lesson.title}}
           </span>
-          <span *ngIf='lesson.grade; else noGrade'>
+          <span *ngIf='lesson.grade; else noGrade' [inner]='lesson.grade' GradeHighlight>
             {{lesson.grade}}
           </span>
           <ng-template #noGrade>
             <form (ngSubmit)='addGrade(lesson.id)' [formGroup]="formGrade">
-              <input type='number' formControlName='grade' min="1" max="5" />
+              <input type='number' GradeHighlight formControlName='grade' min="1" max="5" />
               <button type="submit" [disabled]='formGrade.invalid'>add</button>
             </form>
           </ng-template>
@@ -63,7 +63,7 @@
       </ul>
       <form class="lesson-form" (ngSubmit)="submit()" [formGroup]="form">
         <div class="form-item">
-          <input type="text" formControlName="name" placeholder="New Student" />
+          <input type="text" (testEvent)='inputFunc()' formControlName="name" placeholder="New Student" />
         </div>
         <button class="btn" type="submit" [disabled]="form.invalid">
           Добавить

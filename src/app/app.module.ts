@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestTestComponent } from './test-test/test-test.component';
 import { SomeDirectiveDirective } from './directive/some-directive.directive';
 import { TableClassroomComponent } from './table-classroom/table-classroom.component';
+import { GradeHighlightDirective } from './services/grade-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TableClassroomComponent } from './table-classroom/table-classroom.compo
     TestTestComponent,
     SomeDirectiveDirective,
     TableClassroomComponent,
+    GradeHighlightDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
