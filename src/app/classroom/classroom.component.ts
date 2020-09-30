@@ -16,6 +16,7 @@ export class ClassroomComponent implements OnInit, OnChanges {
   studentList: boolean;
   studentFormVisibility: boolean;
   studentInView: string;
+  id;
 
   @Input() someEvent: any;
 
@@ -24,9 +25,6 @@ export class ClassroomComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.loadStudents();
 
-    this.form = new FormGroup({
-      name: new FormControl('', Validators.required),
-    });
     this.formGrade = new FormGroup({
       grade: new FormControl('', Validators.required),
     });
@@ -59,14 +57,19 @@ export class ClassroomComponent implements OnInit, OnChanges {
     this.studentList = !this.studentList;
   }
 
-  toggleStudent(id: string) {
-    this.studentList = !this.studentList;
-    this.pickStudent(id);
+  recieveID($event) {
+    this.id = $event;
   }
 
-  pickStudent(id: string) {
+  pickStudent(id) {
+    // console.log($event);
+    // this.id = $event;
+
+    this.studentList = !this.studentList;
+
     this.student = this.students.filter((student) => student.id === id)[0];
     this.student = { ...this.student, picked: true };
+    console.log(this.studentList, this.student);
   }
 
   deleteStudent() {

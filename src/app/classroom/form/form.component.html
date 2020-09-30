@@ -1,0 +1,15 @@
+<div class="student-list">
+  <ul>
+    <li *ngFor="let student of students; let i = index" (click)='chooseStudent(student.id)'>
+      {{ i + 1 }}/ {{ student.name }}
+    </li>
+  </ul>
+  <form class="lesson-form" (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-item">
+      <input type="text" formControlName="name" placeholder="New Student" />
+    </div>
+    <button class="btn" type="submit" [disabled]="form.invalid">
+      Добавить
+    </button>
+  </form>
+</div>

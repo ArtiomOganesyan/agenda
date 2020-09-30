@@ -1,13 +1,20 @@
-<div class="container">
-
-  <div [ngClass]='tableButtonClass' (click)='toggleTable()'>
-    {{tableOpened ? 'Закрыть &#8593;' : 'Открыть  &#8595;'}}</div>
-
-
-
+<div class="main">
   <div>
+    <app-navigation></app-navigation>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+<!-- <div [ngClass]='tableButtonClass' (click)='toggleTable()'>
+    {{tableOpened ? 'Закрыть &#8593;' : 'Открыть  &#8595;'}}</div> -->
+
+
+<!-- <app-test-test></app-test-test> -->
+
+<!-- <div>
     <app-lesson-schedule (newLessonSubmitted)='test()'></app-lesson-schedule>
-    <!-- <app-test-test></app-test-test> -->
   </div>
   <div>
     <app-classroom [someEvent]='local' #comp2></app-classroom>
@@ -15,10 +22,10 @@
 
   <div [ngClass]='tableClassroom'>
     <app-table-classroom></app-table-classroom>
-  </div>
+  </div> -->
 
 
-
+<!-- 
   <div class="bigger-screen">
     <span>
       Please use a bigger screen... width 1280px
@@ -26,8 +33,4 @@
     <span>
       Пожалуйста, увеличьте размер окна вашего браузера... width 1280px
     </span>
-  </div>
-
-
-
-</div>
+  </div> -->

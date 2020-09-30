@@ -1,5 +1,12 @@
 <div class="container">
-  <i (click)="pickStudentFormToggle()">...</i>
+  <i (click)="pickStudentFormToggle()" >...</i>
+
+  <div *ngIf="studentList">
+    <div class="mask" (click)="pickStudentFormToggle()"></div>
+    <app-form (studentEvent)='pickStudent($event)'></app-form>
+  </div>
+
+  <!-- <app-user></app-user> -->
 
   <div class="student-info" *ngIf="student; else noStudent">
     <i class='icon-delete' (click)='deleteStudent()'>X</i>
@@ -53,25 +60,7 @@
   </ng-template>
 
 
-  <div *ngIf="studentList">
-    <div class="mask" (click)="pickStudentFormToggle()"></div>
-    <div class="student-list">
-      <ul>
-        <li *ngFor="let student of students; let i = index" (click)='toggleStudent(student.id)'>
-          {{ i + 1 }}/ {{ student.name }}
-        </li>
-      </ul>
-      <form class="lesson-form" (ngSubmit)="submit()" [formGroup]="form">
-        <div class="form-item">
-          <input type="text" (testEvent)='inputFunc()' formControlName="name" placeholder="New Student" />
-        </div>
-        <button class="btn" type="submit" [disabled]="form.invalid">
-          Добавить
-        </button>
-        <div class="icon" (click)="pickStudentFormToggle()">X</div>
-      </form>
-    </div>
-  </div>
+
 
 
 

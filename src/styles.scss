@@ -5,12 +5,11 @@
   --primary-color: #2c6b65;
   --danger-color: #de4747;
   --second-color: #7a575a;
-  --light-color: #f0f0f0;
+  --light-color: #cccccc;
   --dark-color: #070805;
   --primary-font: 'Cormorant SC', serif;
   --secondary-font: 'Cormorant Infant', serif;
 }
-
 
 * {
   padding: 0px;
@@ -18,17 +17,6 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  font-family: var(--primary-font);
-}
-
-button {
-  cursor: pointer;
-}
-
-.icon,
-i {
-  cursor: pointer;
+img {
+  width: 100%;
 }

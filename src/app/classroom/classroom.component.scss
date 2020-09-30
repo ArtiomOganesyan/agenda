@@ -1,14 +1,22 @@
 .container {
   position: relative;
-  border-left: 2px solid var(--dark-color);
-  background: var(--light-color);
   width: 100%;
   height: 100%;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .mask {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: var(--dark-color);
+    opacity: 50%;
+  }
 
   // .ng-valid {
   //   background: #42A948;
@@ -16,6 +24,7 @@
 
   .noStudent-text {
     cursor: pointer;
+    color: var(--light-color);
   }
 
   i,
@@ -24,9 +33,11 @@
     top: 1rem;
     right: 1rem;
     transition: all 0.5s;
+    color: var(--light-color);
+    font-size: 1.5rem;
 
     &:hover {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       top: 0.6rem;
       text-shadow: 0px 0px 10px rgba(44, 107, 101, 1);
     }
@@ -42,7 +53,7 @@
 
     .icon-delete {
       top: 3rem;
-      right: 3rem
+      right: 3rem;
     }
 
     .student {
@@ -54,11 +65,11 @@
       align-items: center;
       // flex-wrap: wrap;
 
-      >:first-child {
+      > :first-child {
         width: 15%;
       }
 
-      >:last-child {
+      > :last-child {
         width: 85%;
       }
 
@@ -70,23 +81,21 @@
       .averageGrade,
       .averageGradeSecond {
         width: 75%;
-        margin-bottom: .3rem;
+        margin-bottom: 0.3rem;
         border-bottom: 1px solid var(--primary-color);
         display: flex;
         justify-content: space-between;
       }
-
     }
   }
 
   .student-table {
-
     ul {
       max-height: 400px;
       overflow: auto;
     }
 
-    ul>li {
+    ul > li {
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -98,14 +107,13 @@
       align-items: stretch;
 
       input {
-        padding: 5px
+        padding: 5px;
       }
 
       button {
         width: 33%;
       }
     }
-
   }
 
   .student-list {
@@ -143,25 +151,13 @@
       }
 
       input {
-        padding: 5px
+        padding: 5px;
       }
 
       button {
         width: 33%;
       }
     }
-
-  }
-
-  .mask {
-    position: fixed;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background: var(--dark-color);
-    opacity: 50%;
   }
 
   .icon {
@@ -179,10 +175,7 @@
     li {
       list-style: none;
       cursor: pointer;
-      margin-bottom: .5rem
+      margin-bottom: 0.5rem;
     }
   }
-
-
-
 }

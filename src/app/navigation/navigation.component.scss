@@ -1,0 +1,105 @@
+.navigation-bar {
+  // position: fixed;
+  width: 10vw;
+  height: 100vh;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 1s;
+  background: rgba(255, 255, 255, 0.322);
+  padding-bottom: 50vh;
+  transition: all 2s;
+
+  &.small {
+    width: 3vw;
+  }
+
+  &>:first-child {
+    flex-grow: 1;
+  }
+
+  &--navigation-home {
+    &>div {
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+      padding: 0.5rem;
+    }
+  }
+
+  a {
+    margin: 10px 0;
+    text-decoration: none;
+    color: var(--dark-color);
+    position: relative;
+    cursor: pointer;
+    padding-left: 0.5rem;
+
+    &.small::before {
+      content: attr(data-contentSmall);
+    }
+
+
+    &::before {
+      content: attr(data-content);
+      transition: 0.5;
+      background: var(--primary-color);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
+
+    &:hover {
+      &::before {
+        padding-left: 0.5rem;
+
+        width: 15%;
+        transition: all .5s;
+      }
+    }
+
+    &.active {
+
+
+      &::before {
+        padding-left: 1rem;
+
+        width: 83%;
+        transition: all 1s;
+      }
+
+      // text-shadow: 2px 2px 2px var(--primary-color);
+
+    }
+
+
+  }
+
+
+  &--toggle {
+    cursor: pointer;
+    position: fixed;
+    width: 25px;
+    margin: 1rem;
+    top: 0;
+    right: 0;
+    color: var(--primary-color);
+    transition: all 0.4s;
+    display: flex;
+    border-right: 3px solid var(--primary-color);
+
+
+    &:hover {
+      width: 40px;
+    }
+  }
+}

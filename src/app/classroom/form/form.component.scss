@@ -1,0 +1,52 @@
+.student-list {
+  position: fixed;
+  z-index: 101;
+  width: 450px;
+  min-width: 250px;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  background: rgba(173, 216, 230, 0.397);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 25px;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+
+  & > * {
+    padding: 20px 0;
+  }
+
+  ul {
+    overflow: auto;
+    height: 75%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+
+    li {
+      width: 80%;
+      list-style: none;
+    }
+  }
+
+  .lesson-form {
+    display: flex;
+    height: 2rem;
+    padding-bottom: 2rem;
+
+    .btn {
+      height: 2rem;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+    input {
+      height: 2rem;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+  }
+}
